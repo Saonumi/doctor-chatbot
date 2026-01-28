@@ -75,15 +75,15 @@ def get_next_patient_id(db: Session = Depends(get_db)):
         .first()
     
     if last_record and last_record.MaBenhNhan:
-        # Extract number from BN00049 -> 49
+        # Extract number from BN-00049 -> 49
         try:
-            last_num = int(last_record.MaBenhNhan.replace('BN', ''))
+            last_num = int(last_record.MaBenhNhan.replace('BN-', ''))
             next_num = last_num + 1
-            next_id = f"BN{next_num:05d}"  # BN00050
+            next_id = f"BN-{next_num:05d}"  # BN-00050
         except:
-            next_id = "BN00001"
+            next_id = "BN-00001"
     else:
-        next_id = "BN00001"
+        next_id = "BN-00001"
     
     return {"next_patient_id": next_id}
 
