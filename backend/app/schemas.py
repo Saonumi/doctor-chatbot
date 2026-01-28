@@ -1,16 +1,35 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import date, datetime
 
-# Model dùng để tạo hồ sơ khám mới (Input)
-# Model dùng để tạo hồ sơ khám mới (Input)
-class HoSoCreate(BaseModel):
+# --- SCHEMAS CHO LƯỢT KHÁM ---
+class LuotKhamBase(BaseModel):
+    TrieuChung: Optional[str] = None
+    BenhDanh: Optional[str] = None
+    ChungDanh: Optional[str] = None
+    BaiThuoc: Optional[str] = None
+    ChamCuuXoaBop: Optional[str] = None
+    CheDoAnUongSinhHoat: Optional[str] = None
+    LoiDanBacSi: Optional[str] = None
+
+class LuotKhamCreate(LuotKhamBase):
+    pass
+
+class LuotKhamResponse(LuotKhamBase):
+    LuotKhamID: int
+    BenhNhanID: int
+    NgayKham: datetime
+
+    class Config:
+        from_attributes = True
+
+# --- SCHEMAS CHO BỆNH NHÂN ---
+class BenhNhanBase(BaseModel):
     # I. THÔNG TIN HÀNH CHÍNH
-    MaBenhNhan: str
     HoTen: str
     NgaySinh: Optional[date] = None
     GioiTinh: Optional[str] = None
-    CCCD: Optional[str] = None
+    CCCD: str  # Required để check trùng
     DiaChi: Optional[str] = None
     SDT: Optional[str] = None
     NgheNghiep: Optional[str] = None
@@ -21,26 +40,18 @@ class HoSoCreate(BaseModel):
     TienSuBanThan: Optional[str] = None
     TienSuGiaDinh: Optional[str] = None
 
-    # III. CHẨN ĐOÁN ĐÔNG Y
-    TrieuChung: Optional[str] = None
-    BenhDanh: Optional[str] = None
-    ChungDanh: Optional[str] = None
+class BenhNhanCreate(BenhNhanBase):
+    # Khi tạo bệnh nhân mới, có thể tạo luôn lượt khám đầu tiên
+    LuotKhamDau: Optional[LuotKhamCreate] = None
 
-    # IV. ĐIỀU TRỊ
-    BaiThuoc: Optional[str] = None
-    ChamCuuXoaBop: Optional[str] = None
-    CheDoAnUongSinhHoat: Optional[str] = None
+class BenhNhanUpdate(BenhNhanBase):
+    pass
 
-    # V. THEO DÕI & LỜI DẶN
-    # LanKham duoc tinh tu dong
-    NgayKham: Optional[datetime] = None
-    # HenTaiKham da xoa khoi DB
-    LoiDanBacSi: Optional[str] = None
-
-# Model dùng để trả về dữ liệu cho Frontend (Output)
-class HoSoResponse(HoSoCreate):
+class BenhNhanResponse(BenhNhanBase):
     ID: int
-    LanKham: int # Field nay se duoc tinh toan
+    MaBenhNhan: Optional[str] = None # Có thể null lúc mới insert xong chưa refresh
+    NgayTao: datetime
+    luot_khams: List[LuotKhamResponse] = []
 
     class Config:
-        from_attributes = True # Để đọc được dữ liệu từ SQLAlchemy model
+        from_attributes = True

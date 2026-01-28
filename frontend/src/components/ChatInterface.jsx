@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 export default function ChatInterface() {
     // Initialize messages from localStorage or default
     const [messages, setMessages] = useState(() => {
-        const saved = localStorage.getItem('chatHistory');
+        const saved = localStorage.getItem('chatHistory_v2');
         if (saved) {
             try {
                 return JSON.parse(saved);
@@ -17,7 +17,15 @@ export default function ChatInterface() {
         }
         return [{
             role: 'assistant',
-            content: 'Xin chào! Tôi là trợ lý AI chuyên về Y học Đông Y.\n\nBạn có thể hỏi tôi về:\n• Triệu chứng bệnh lý\n• Phác đồ điều trị, bài thuốc\n• Tra cứu huyệt vị, châm cứu\n\nHãy mô tả triệu chứng, tôi sẽ hỗ trợ bạn!'
+            content: `Xin chào! Tôi là trợ lý AI chuyên về Y học Đông Y.
+
+Bạn có thể hỏi tôi về:
+
+• Triệu chứng bệnh lý
+• Phác đồ điều trị, bài thuốc
+• Tra cứu huyệt vị, châm cứu
+
+Hãy mô tả triệu chứng, tôi sẽ hỗ trợ bạn!`
         }];
     });
     const [input, setInput] = useState('');
@@ -27,7 +35,7 @@ export default function ChatInterface() {
     // Save chat history to localStorage whenever messages change
     useEffect(() => {
         if (messages.length > 0) {
-            localStorage.setItem('chatHistory', JSON.stringify(messages));
+            localStorage.setItem('chatHistory_v2', JSON.stringify(messages));
         }
     }, [messages]);
 
@@ -43,10 +51,18 @@ export default function ChatInterface() {
         if (window.confirm('Bạn có chắc muốn xóa toàn bộ lịch sử chat?')) {
             const initialMsg = {
                 role: 'assistant',
-                content: 'Xin chào! Tôi là trợ lý AI chuyên về Y học Đông Y.\\n\\nBạn có thể hỏi tôi về:\\n• Triệu chứng bệnh lý\\n• Phác đồ điều trị, bài thuốc\\n• Tra cứu huyệt vị, châm cứu\\n\\nHãy mô tả triệu chứng, tôi sẽ hỗ trợ bạn!'
+                content: `Xin chào! Tôi là trợ lý AI chuyên về Y học Đông Y.
+
+Bạn có thể hỏi tôi về:
+
+• Triệu chứng bệnh lý
+• Phác đồ điều trị, bài thuốc
+• Tra cứu huyệt vị, châm cứu
+
+Hãy mô tả triệu chứng, tôi sẽ hỗ trợ bạn!`
             };
             setMessages([initialMsg]);
-            localStorage.removeItem('chatHistory');
+            localStorage.removeItem('chatHistory_v2');
         }
     };
 
