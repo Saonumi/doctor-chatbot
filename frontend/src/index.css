@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-orange-50 via-red-50 to-amber-50 text-gray-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2.5 px-5 rounded-lg shadow-sm hover:shadow transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-amber-500 hover:bg-amber-600 text-white font-medium py-2.5 px-5 rounded-lg shadow-sm hover:shadow transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-red-600 text-red-700 hover:bg-red-50 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-3.5 py-2.5 border-2 border-orange-200 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none bg-white transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md border-l-4 border-red-600 p-5 hover:shadow-lg transition-shadow duration-200;
+  }
+
+  .card-simple {
+    @apply bg-white rounded-lg shadow-sm border border-orange-100 p-4;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-red {
+    @apply bg-red-100 text-red-800 border border-red-200;
+  }
+
+  .badge-green {
+    @apply bg-green-100 text-green-800 border border-green-200;
+  }
+
+  .badge-amber {
+    @apply bg-amber-100 text-amber-800 border border-amber-200;
+  }
+}
+
+/* Scrollbar với màu Đông Y */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffedd5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #dc2626, #f59e0b);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #b91c1c, #d97706);
+}

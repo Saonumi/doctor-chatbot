@@ -1,0 +1,32 @@
+# Root gitignore
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Backend specific
+backend/venv/
+backend/__pycache__/
+backend/storage/vector_db/
+backend/*.db
+backend/test_log.txt
+backend/status_log.txt
+
+# Frontend specific
+frontend/node_modules/
+frontend/dist/
+frontend/build/
