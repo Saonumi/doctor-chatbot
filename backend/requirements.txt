@@ -6,7 +6,6 @@ pydantic
 pydantic-settings
 python-dotenv
 python-multipart
-# --- Thư viện cho AI (RAG) ---
 langchain>=0.3.0
 langchain-community>=0.3.0
 langchain-google-genai>=0.1.0
@@ -14,12 +13,10 @@ langchain-text-splitters>=0.3.0
 pypdf
 faiss-cpu
 tiktoken
-# --- Multimodal Support ---
 unstructured[pdf]
 pillow
 pdf2image
 pytesseract
 opencv-python
-# --- PDF Monitoring ---
 watchdog
 sentence-transformers
