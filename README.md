@@ -51,7 +51,7 @@ Trước khi bắt đầu, đảm bảo bạn đã cài đặt:
 
 ```bash
 git clone <repository-url>
-cd dotor_chatbot
+cd doctor_chatbot
 ```
 
 ### 2. Database Setup
