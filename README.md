@@ -40,9 +40,7 @@ Hệ thống quản lý bệnh nhân tích hợp AI chatbot tư vấn Y học Đ
 Trước khi bắt đầu, đảm bảo bạn đã cài đặt:
 
 - **Python 3.11 hoặc cao hơn**
-- **Node.js 18+ và npm**
 - **SQL Server** (hoặc SQL Server Express)
-- **ODBC Driver 17 for SQL Server** ([Download](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server))
 - **Google Gemini API Key** ([Get it here](https://aistudio.google.com/apikey))
 
 ## Quick Start
