@@ -50,50 +50,6 @@ Hệ thống quản lý bệnh nhân tích hợp **AI Chatbot tư vấn Y học 
 
 ## 🏗️ Kiến trúc AI Pipeline
 
-```
-User Question
-      │
-      ▼
-┌──────────────┐
-│ Intent Router│──── Gemini (temperature=0, few-shot)
-└──────┬───────┘
-       │
-  ┌────┼────────────┐
-  ▼    ▼             ▼
-MEDICAL  PATIENT    GENERAL
-  │       │           │
-  ▼       ▼           ▼
-┌─────┐ ┌─────────┐ ┌─────┐
-│ RAG │ │Text2SQL │ │ LLM │
-└──┬──┘ └────┬────┘ └──┬──┘
-   │         │         │
-   ▼         ▼         ▼
- FAISS    SQL Server  Gemini
- Search   SELECT      Direct
-   │         │         │
-   ▼         ▼         ▼
-┌──────────────────────────┐
-│      Gemini LLM          │
-│  Format câu trả lời      │
-└──────────────────────────┘
-```
-
-### Chi tiết từng module
-
-| Module | File | Mô tả |
-|---|---|---|
-| **Gemini Client** | `gemini_client.py` | Client tập trung, hỗ trợ Google API + custom proxy |
-| **Intent Router** | `intent_router.py` | Phân loại: MEDICAL / PATIENT / GENERAL |
-| **Medical RAG** | `medical_rag.py` | FAISS retrieval + Gemini generation |
-| **Patient SQL** | `patient_sql.py` | Text-to-SQL (sinh SELECT, validate, execute) |
-| **PDF Processor** | `pdf_processor.py` | Semantic Chunking + Gemini Vision cho ảnh |
-| **Embedding** | `embedding_service.py` | MiniLM-L12-v2 local (384d, Singleton) |
-| **Vector Store** | `vector_store.py` | FAISS IndexFlatIP + lưu disk |
-| **Logger** | `logger_service.py` | Structured logging (console + JSON file) |
-| **AI Service** | `ai_service.py` | Orchestrator + SSE streaming |
-
----
-
 ## 📋 Prerequisites
 
 - **Python 3.11+**
