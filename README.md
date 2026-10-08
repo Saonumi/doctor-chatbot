@@ -1,4 +1,4 @@
-# 🏥 Hệ thống Quản lý Phòng khám Đông Y
+# Hệ thống Quản lý Phòng khám Đông Y
 ### TCM Clinic Management System
 
 Hệ thống quản lý bệnh nhân tích hợp **AI Chatbot tư vấn Y học Đông Y**, sử dụng kiến trúc **Agentic RAG** (Retrieval-Augmented Generation) với Google Gemini và SQL Server.
@@ -7,21 +7,21 @@ Hệ thống quản lý bệnh nhân tích hợp **AI Chatbot tư vấn Y học 
 
 ## ✨ Tính năng
 
-- 🏥 **Quản lý Bệnh nhân**: Thêm, xem, sửa, xóa hồ sơ bệnh nhân (auto-generated patient ID)
-- 📋 **Lịch sử Khám bệnh**: Theo dõi đầy đủ từng lượt khám của bệnh nhân
-- 🤖 **AI Chatbot Đông Y**: Tư vấn y học dựa trên sách Đông Y (RAG-powered)
-- 🔀 **Agentic RAG**: Intent Router tự động phân loại câu hỏi → route đúng nhánh xử lý
-- 👤 **Text-to-SQL**: Tra cứu bệnh nhân bằng ngôn ngữ tự nhiên
-- ⚡ **Pipeline Visualization**: Hiển thị realtime quy trình xử lý AI qua SSE
-- 📚 **Document Management**: Upload và quản lý tài liệu PDF y học
-- 🔍 **Smart Search**: Tìm kiếm bệnh nhân theo tên, CCCD, triệu chứng
-- 💬 **Persistent Chat**: Lưu lịch sử chat tự động với localStorage
-- ✨ **Markdown Support**: Hiển thị response từ AI với format markdown
-- 🌐 **Tiếng Việt**: Full support tiếng Việt
+- **Quản lý Bệnh nhân**: Thêm, xem, sửa, xóa hồ sơ bệnh nhân (auto-generated patient ID)
+- **Lịch sử Khám bệnh**: Theo dõi đầy đủ từng lượt khám của bệnh nhân
+- **AI Chatbot Đông Y**: Tư vấn y học dựa trên sách Đông Y (RAG-powered)
+- **Agentic RAG**: Intent Router tự động phân loại câu hỏi → route đúng nhánh xử lý
+- **Text-to-SQL**: Tra cứu bệnh nhân bằng ngôn ngữ tự nhiên
+- **Pipeline Visualization**: Hiển thị realtime quy trình xử lý AI qua SSE
+- **Document Management**: Upload và quản lý tài liệu PDF y học
+- **Smart Search**: Tìm kiếm bệnh nhân theo tên, CCCD, triệu chứng
+- **Persistent Chat**: Lưu lịch sử chat tự động với localStorage
+- **Markdown Support**: Hiển thị response từ AI với format markdown
+- **Tiếng Việt**: Full support tiếng Việt
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 | Thành phần | Công nghệ |
@@ -48,9 +48,9 @@ Hệ thống quản lý bệnh nhân tích hợp **AI Chatbot tư vấn Y học 
 
 ---
 
-## 🏗️ Kiến trúc AI Pipeline
+## Kiến trúc AI Pipeline
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Python 3.11+**
 - **Node.js 18+ và npm**
@@ -60,7 +60,7 @@ Hệ thống quản lý bệnh nhân tích hợp **AI Chatbot tư vấn Y học 
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone Repository
 
